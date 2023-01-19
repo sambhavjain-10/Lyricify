@@ -1,0 +1,90 @@
+/* Modal z-index is 10000 */
+
+@import "src/colors";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 1rem;
+}
+
+@mixin font {
+	font-family: "Open Sans", sans-serif;
+}
+
+#root {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	margin: auto;
+	overflow: hidden;
+	background: $white;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	@include font;
+}
+
+//global styles
+
+html {
+	font-size: 14px;
+}
+
+body {
+	overflow-x: hidden;
+	background: linear-gradient(180deg, #cbeff3 0%, #b6cde8 100%);
+	backdrop-filter: blur(30px);
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: initial;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.disabled-link {
+	pointer-events: none;
+}
+
+//Scrollbar
+
+*::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background: $grey;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
+}

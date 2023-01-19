@@ -1,0 +1,100 @@
+@import "src/colors";
+
+.container {
+	padding: 20px;
+	width: 70%;
+	margin: auto;
+	.input {
+	}
+	.results {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		.tracks {
+			& > div {
+				display: flex;
+				flex-direction: column;
+				height: calc(100vh - 440px);
+				overflow-y: scroll;
+				width: 100%;
+				.track {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					padding: 10px;
+					border-radius: 10px;
+					cursor: pointer;
+					&:hover {
+						background: #eee;
+					}
+					img {
+						width: 40px;
+						height: 40px;
+					}
+					& > div {
+						display: flex;
+						flex-direction: column;
+						gap: 5px;
+						& > span {
+							font-weight: 600;
+							pointer-events: none;
+						}
+						& > div {
+							display: flex;
+							align-items: center;
+							gap: 3px;
+							& > span:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+		.artists {
+			& > div {
+				display: flex;
+				align-items: center;
+				overflow-x: scroll;
+				overflow-y: hidden;
+				&::-webkit-scrollbar {
+					display: none;
+				}
+				.artist {
+					border-radius: 10px;
+					padding: 20px;
+					height: 150px;
+					width: 100%;
+					cursor: pointer;
+					display: flex;
+					gap: 5px;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					&:hover {
+						background: #eee;
+					}
+					img {
+						border-radius: 50%;
+						width: 90px;
+						width: 90px;
+					}
+					span {
+						font-weight: 600;
+						text-align: center;
+					}
+				}
+			}
+		}
+		.tracks,
+		.artists {
+			& > span {
+				display: block;
+				font-weight: 600px;
+				font-size: 1.5rem;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
