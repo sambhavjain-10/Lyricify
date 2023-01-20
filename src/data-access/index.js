@@ -1,3 +1,3 @@
 export { useTracks } from "./useTracks";
-export { useLyrics } from "./useLyrics";
+export { useSong } from "./useSong";
 export { useArtist } from "./useArtist";
