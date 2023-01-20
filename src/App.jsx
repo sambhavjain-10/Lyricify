@@ -17,7 +17,7 @@ const App = () => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<BrowserRouter basename="/lyricify">
+			<BrowserRouter>
 				<Navbar />
 				<Routes>
 					<Route path="/artist/:id" exact element={<Artist />} />
