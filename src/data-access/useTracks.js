@@ -6,8 +6,10 @@ export const useTracks = (searchValue = "") => {
 		DataApi.get("/search", {
 			params: {
 				q: searchValue,
+				per_page: "20",
+				page: "1",
 			},
-		}).then(res => res.data.response.hits);
+		}).then(res => res.data.hits);
 
 	const {
 		data: tracksData,

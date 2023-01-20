@@ -4,6 +4,14 @@
 	padding: 20px;
 	width: 70%;
 	margin: auto;
+
+	.loader {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 250px 0;
+	}
+
 	.artist {
 		background: #eee;
 		display: flex;
@@ -25,12 +33,6 @@
 	}
 	.tracks {
 		margin-top: 20px;
-		& > span {
-			display: block;
-			font-weight: 600px;
-			font-size: 1.5rem;
-			margin-bottom: 10px;
-		}
 		& > div {
 			display: flex;
 			flex-direction: column;

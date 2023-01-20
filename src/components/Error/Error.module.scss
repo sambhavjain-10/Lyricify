@@ -1,0 +1,9 @@
+@import "src/colors";
+
+.error {
+	color: $red;
+	font-weight: 700;
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+}

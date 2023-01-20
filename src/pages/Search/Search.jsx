@@ -1,5 +1,5 @@
 import { searchAtom } from "@atoms";
-import { Input } from "@components";
+import { Input, Loader, Title, Error } from "@components";
 import { useTracks } from "@data-access";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const Search = () => {
 	const [artists, setArtists] = useState([]);
 
 	//api
-	const { tracksData, tracksLoading } = useTracks(searchValue);
+	const { tracksData, tracksLoading, fetchTracksError } = useTracks(searchValue);
 
 	//functions
 	const handleSearch = () => setSearchValue(value);
@@ -54,44 +54,50 @@ const Search = () => {
 			<div className={styles.input}>
 				<Input value={value} setValue={setValue} placeholder="Type Song, Artist, Album" ref={searchRef} />
 			</div>
-			{tracksLoading && "Loading..."}
-			{tracksData && (
-				<div className={styles.results}>
-					<div className={styles.tracks}>
-						<span>Songs</span>
-						<div>
-							{songs?.map(track => (
-								<div className={styles.track} onClick={() => navigate(`/song/${track.id}`)}>
-									<img src={track.song_art_image_thumbnail_url} alt="" />
-									<div>
-										<span>{track.title}</span>
+			{fetchTracksError && <Error>Something went wrong while fetching songs, Please come back later</Error>}
+			{tracksLoading ? (
+				<div className={styles.loader}>
+					<Loader />
+				</div>
+			) : (
+				tracksData && (
+					<div className={styles.results}>
+						<div className={styles.tracks}>
+							<Title>Songs</Title>
+							<div>
+								{songs?.map(track => (
+									<div className={styles.track} onClick={() => navigate(`/song/${track.id}`)}>
+										<img src={track.song_art_image_thumbnail_url} alt="" />
 										<div>
-											<span onClick={() => navigate(`/artist/${track.primary_artist.id}`)}>
-												{track.primary_artist.name}
-											</span>
-											{track.featured_artists.map(fa => (
-												<>
-													, <span onClick={() => navigate(`/artist/${fa.id}`)}>{fa.name}</span>
-												</>
-											))}
+											<span>{track.title}</span>
+											<div>
+												<span onClick={() => navigate(`/artist/${track.primary_artist.id}`)}>
+													{track.primary_artist.name}
+												</span>
+												{track.featured_artists.map(fa => (
+													<>
+														, <span onClick={() => navigate(`/artist/${fa.id}`)}>{fa.name}</span>
+													</>
+												))}
+											</div>
 										</div>
 									</div>
-								</div>
-							))}
+								))}
+							</div>
+						</div>
+						<div className={styles.artists}>
+							<Title>Artists</Title>
+							<div>
+								{artists?.map(artist => (
+									<div className={styles.artist} onClick={() => navigate(`/artist/${artist.id}`)}>
+										<img src={artist.image_url} />
+										<span>{artist.name}</span>
+									</div>
+								))}
+							</div>
 						</div>
 					</div>
-					<div className={styles.artists}>
-						<span>Artists</span>
-						<div>
-							{artists?.map(artist => (
-								<div className={styles.artist} onClick={() => navigate(`/artist/${artist.id}`)}>
-									<img src={artist.image_url} />
-									<span>{artist.name}</span>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
+				)
 			)}
 		</div>
 	);

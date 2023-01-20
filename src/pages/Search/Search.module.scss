@@ -4,7 +4,11 @@
 	padding: 20px;
 	width: 70%;
 	margin: auto;
-	.input {
+	.loader {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 250px 0;
 	}
 	.results {
 		margin-top: 30px;
@@ -85,15 +89,6 @@
 						text-align: center;
 					}
 				}
-			}
-		}
-		.tracks,
-		.artists {
-			& > span {
-				display: block;
-				font-weight: 600px;
-				font-size: 1.5rem;
-				margin-bottom: 10px;
 			}
 		}
 	}

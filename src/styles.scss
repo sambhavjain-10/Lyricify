@@ -37,12 +37,6 @@ html {
 	font-size: 14px;
 }
 
-body {
-	overflow-x: hidden;
-	background: linear-gradient(180deg, #cbeff3 0%, #b6cde8 100%);
-	backdrop-filter: blur(30px);
-}
-
 button {
 	cursor: pointer;
 	outline: none;
@@ -74,17 +68,4 @@ input::-webkit-inner-spin-button {
 *::-webkit-scrollbar-thumb {
 	border-radius: 3px;
 	background: $grey;
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
 }

@@ -5,7 +5,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 	return (
 		<div className={styles.container} onClick={() => navigate("/")}>
-			Lyricify
+			<span>Lyricify</span>
 		</div>
 	);
 };
